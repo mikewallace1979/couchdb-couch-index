@@ -55,11 +55,7 @@ validate(DbName, DDoc) ->
     end,
     ValidateFun = fun
         (ModName, ok) ->
-            try
-                ModName:validate(DbName, DDoc)
-            catch Type:Reason ->
-                {Type, Reason}
-            end;
+            ModName:validate(DbName, DDoc);
         (_ModName, Error) ->
             Error
     end,
